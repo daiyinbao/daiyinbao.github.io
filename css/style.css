@@ -551,12 +551,18 @@ a, .m-nav a:hover, .l-post .p-desc a:hover, .ttl a:hover, .m-nav .dot, .l-pager 
 .p-content pre {
   margin-top: 18px !important;
   margin-bottom: 18px !important;
+  font-size: 15px; /* ← 调整：代码块整体字号放大 */
+  line-height: 1.75; /* ← 调整：代码行高 */
+  padding: 1em 1.2em; /* ← 调整：更大留白 */
+  border-radius: 6px; /* ← 调整：稍大圆角 */
+  overflow-x: auto; /* ← 调整：横向溢出滚动 */
+  max-width: 95%; /* ← 调整：防止过宽 */
 }
 .p-content pre ol {
   overflow: auto;
 }
 .p-content pre ol li {
-  line-height: 1.8em;
+  line-height: 1.75; /* ← 调整：同步行高 */
   list-style: none;
   margin-left: 0;
   white-space: pre;
@@ -568,11 +574,14 @@ a, .m-nav a:hover, .l-post .p-desc a:hover, .ttl a:hover, .m-nav .dot, .l-pager 
 .p-content pre code.prettyprint {
   padding: 0;
   border-radius: 0 !important;
+  font-size: 15px; /* ← 调整：prettyprint 字号 */
+  line-height: 1.75; /* ← 调整：prettyprint 行高 */
 }
 .p-content pre code.hljs {
   padding: 0.6em 0.8em;
-  line-height: 1.6em;
-  border-radius: 0.4em !important;
+  line-height: 1.75; /* ← 调整：hljs 行高 */
+  border-radius: 6px !important; /* ← 调整：同步圆角 */
+  font-size: 15px; /* ← 调整：hljs 字号 */
 }
 .p-content table {
   display: inline-block;
