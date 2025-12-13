@@ -10,21 +10,20 @@ html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form
 }
 
 body {
-  background-color: #fff8dc;
-  background-image: none;
+  background-image: url(/img/backgroud.png);
+  background-repeat: repeat-y;
+  background-position-x: -80px;
   word-wrap: break-word;
-  font-family: "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", tahoma, arial, simsun, "宋体";
-  font-size: 14px;
-  line-height: 2;
+  font: 12px/200% "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", tahoma, arial, simsun, "宋体";
   overflow-x: hidden;
 }
 
 body, .l-content {
-  background-color: #fff8dc;
+  background-color: #2d4356;
 }
 
 blockquote {
-  background-color: #fff8dc;
+  background-color: #2d4356;
 }
 
 body, button, textarea, input, select, .m-hdimg .ttl a, .m-nav a, .l-pager a, .p-content, .l-post .p-desc a {
@@ -33,7 +32,7 @@ body, button, textarea, input, select, .m-hdimg .ttl a, .m-nav a, .l-pager a, .p
 
 button, textarea, input, select {
   font-family: "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", tahoma, arial, simsun, "宋体";
-  font-size: inherit;
+  font-size: 12px;
   outline: 0;
 }
 
