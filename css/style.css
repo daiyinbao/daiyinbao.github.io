@@ -14,7 +14,9 @@ body {
   background-repeat: repeat-y;
   background-position-x: -80px;
   word-wrap: break-word;
-  font: 12px/200% "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", tahoma, arial, simsun, "宋体";
+  font-family: "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", tahoma, arial, simsun, "宋体";
+  font-size: 14px;
+  line-height: 2;
   overflow-x: hidden;
 }
 
@@ -32,7 +34,7 @@ body, button, textarea, input, select, .m-hdimg .ttl a, .m-nav a, .l-pager a, .p
 
 button, textarea, input, select {
   font-family: "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", tahoma, arial, simsun, "宋体";
-  font-size: 12px;
+  font-size: inherit;
   outline: 0;
 }
 
