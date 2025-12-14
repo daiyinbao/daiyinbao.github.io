@@ -636,15 +636,15 @@ a, .m-nav a:hover, .l-post .p-desc a:hover, .ttl a:hover, .m-nav .dot, .l-pager 
 #toc {
   position: fixed;
   top: 80px;
-  right: 2.5rem;
+  right: 2rem;
   left: auto;
-  width: 240px;
-  max-width: 26vw;
-  min-width: 180px;
-  font-size: 0.85rem;
+  width: 200px; /* 略微缩小目录整体宽度，减少对正文的影响 */
+  max-width: 22vw;
+  min-width: 150px;
+  font-size: 0.8rem;
   line-height: 1.6;
   display: block;
-  padding: 1.2em 1.4em;
+  padding: 1em 1.2em;
   background: #263949;
   border-radius: 4px;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
