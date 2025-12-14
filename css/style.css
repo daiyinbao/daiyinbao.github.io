@@ -442,12 +442,12 @@ a, .m-nav a:hover, .l-post .p-desc a:hover, .ttl a:hover, .m-nav .dot, .l-pager 
 .l-post .p-desc, article.p-art {
   position: relative;
   top: 0;
-  left: -80px;
+  left: 0;
   width: 100%;
-  max-width: 840px;
+  max-width: 1040px;
   text-align: left;
   padding: 40px;
-  margin-bottom: 20px;
+  margin: 0 0 20px;
   background: #263949;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
 }
@@ -578,10 +578,11 @@ a, .m-nav a:hover, .l-post .p-desc a:hover, .ttl a:hover, .m-nav .dot, .l-pager 
   line-height: 1.75; /* ← 调整：prettyprint 行高 */
 }
 .p-content pre code.hljs {
-  padding: 0.6em 0.8em;
-  line-height: 1.75; /* ← 调整：hljs 行高 */
-  border-radius: 6px !important; /* ← 调整：同步圆角 */
-  font-size: 15px; /* ← 调整：hljs 字号 */
+  padding: 0;
+  border-radius: 0 !important;
+  line-height: inherit;
+  font-size: inherit;
+  background: transparent;
 }
 .p-content table {
   display: inline-block;
@@ -634,29 +635,46 @@ a, .m-nav a:hover, .l-post .p-desc a:hover, .ttl a:hover, .m-nav .dot, .l-pager 
 /*----------------------*/
 #toc {
   position: fixed;
-  min-width: 150px;
-  top: 45px;
-  left: 1220px;
+  top: 80px;
+  right: 2.5rem;
+  left: auto;
+  width: 240px;
+  max-width: 26vw;
+  min-width: 180px;
+  font-size: 0.85rem;
+  line-height: 1.6;
   display: block;
-  padding: 1.5em;
+  padding: 1.2em 1.4em;
   background: #263949;
   border-radius: 4px;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
-  margin-right: 20px;
-  max-height: calc(100% - 90px);
+  max-height: calc(100% - 120px);
   overflow: auto;
+  z-index: 98;
+}
+#toc .toc-title {
+  font-size: 0.9rem;
+  margin-bottom: 0.8em;
+  font-weight: bold;
+  opacity: 0.9;
 }
 #toc li a {
   display: block;
+  padding: 0.15em 0;
 }
 #toc li a:hover {
   color: white;
 }
 #toc li li {
-  padding-left: 1.5em;
+  padding-left: 1.2em;
 }
 
+@media (max-width: 1300px) {
+  #toc {
+    display: none;
+  }
+}
 /*----------------------*/
 /*style of ext info     */
 /*----------------------*/
@@ -799,6 +817,134 @@ footer {
 .category-list-child li {
   list-style: inherit;
   margin-left: 2em;
+}
+
+/* overrides for article content and code styling */
+.p-content h2, .p-content h3, .p-content h4 {
+  margin: 1.6em 0 0.6em;
+}
+.p-content p {
+  margin: 1em 0;
+}
+.p-content img {
+  max-width: 100%;
+  margin: 15px 0;
+  vertical-align: middle;
+}
+.p-content {
+  /* inline code in article */
+}
+.p-content code {
+  padding: 0.08em 0.4em;
+  margin: 0 0.2em;
+  border-radius: 0.25em !important;
+  font-size: 1em;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  background: rgba(0, 0, 0, 0.25);
+}
+.p-content code:not(.hljs) {
+  background: #213240;
+}
+.p-content {
+  /* code block */
+}
+.p-content pre {
+  margin: 1.5em 0 !important;
+  font-size: 1rem;
+  line-height: 1.8;
+  padding: 1em 1.4em;
+  border-radius: 6px;
+  background: #1b2836; /* 更深一点的代码块底色，提升可读性 */
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  overflow-x: auto;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.p-content pre ol {
+  overflow: auto;
+}
+.p-content pre ol li {
+  line-height: 1.7;
+  list-style: none;
+  margin-left: 0;
+  white-space: pre;
+}
+.p-content pre.prettyprint {
+  width: auto;
+  max-width: 100%;
+}
+.p-content pre code.prettyprint {
+  padding: 0;
+  border-radius: 0 !important;
+  font-size: inherit;
+  line-height: inherit;
+  background: transparent;
+}
+.p-content pre code.hljs {
+  padding: 0;
+  border-radius: 0 !important;
+  line-height: inherit;
+  font-size: inherit;
+  background: transparent;
+  display: block; /* 让高亮代码完全占满 pre 的宽度 */
+}
+
+/* hexo highlight figure: keep line numbers and code block visually aligned */
+.p-content figure.highlight {
+  margin: 1.5em 0;
+  background: #1b2836; /* 与上面的 pre 使用相同的深色背景 */
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  overflow-x: auto;
+  overflow-y: visible;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.p-content figure.highlight table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.p-content figure.highlight td {
+  padding: 0;
+  border: 0;
+}
+
+.p-content figure.highlight td.gutter {
+  width: 3.2em;
+  padding: 0.8em 0.6em 0.8em 0.8em; /* 与代码区保持相同的上下内边距，保证总高度一致 */
+  text-align: right;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.4);
+  vertical-align: top;
+}
+
+.p-content figure.highlight td.code {
+  padding: 0.8em 1em;
+  vertical-align: top;
+}
+
+.p-content figure.highlight .gutter pre,
+.p-content figure.highlight .code pre {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none; /* 去掉内部 pre 的边框，只保留外层 figure 的白线 */
+  border-radius: 0; /* 取消内部圆角，防止出现双层边界 */
+}
+
+.p-content figure.highlight .gutter .line {
+  display: block;
+  font-size: 1rem; /* 与代码字号保持一致 */
+  line-height: 1.8; /* 与代码行高保持一致 */
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.p-content figure.highlight .code pre code {
+  font-size: 1rem; /* 与上面的 pre 保持一致 */
+  line-height: 1.8;
+  background: transparent;
 }
 
 #back2Top {
